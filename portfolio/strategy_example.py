@@ -18,11 +18,11 @@ df4 = yf.download("^TNX", start=start_date, end=end_date)['Adj Close']
 ts = pd.concat([df, df2, df3, df4], axis=1, sort=True).dropna(how='all').astype(float)
 
 # Calculate momentum signals
-mom_signals = np.log(ts).diff(252).dropna(how='all')
+strategysignals = np.log(ts).diff(252).dropna(how='all')
 
 # Initialize FHSignalBasedWeights object
-b = FHSignalBasedWeights(ts, mom_signals, rebalance='Y')
+b = FHSignalBasedWeights(ts, strategysignals, rebalance='Y')
 
 # Run backtest and plot
-b.run_backtest('mom_backtest').plot()
+b.run_backtest('strategybacktest').plot()
 plt.show()
