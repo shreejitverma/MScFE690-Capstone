@@ -1,6 +1,7 @@
 # interest rate hedging
 
 import numpy as np
+import matplotlib.pyplot as plt
 
 class InterestRateSwap:
     """
@@ -122,7 +123,7 @@ def select_hedging_instrument(risk, insts, risk_tol):
         list: Based on the evaluated risk it will indicat the list of the appropriate instruments for hedging and it is a list.
     """
 
-     if risk > risk_tol:
+    if risk > risk_tol:
         return [inst for inst in insts if isinstance(inst, InterestRateSwap)]
     else:
         return [inst for inst in insts if isinstance(inst, InterestRateOption)]

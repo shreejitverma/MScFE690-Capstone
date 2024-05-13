@@ -1,11 +1,14 @@
 import yfinance as yf
 import matplotlib.pyplot as plt
+import sys
+import os
+sys.path.insert(0, os.path.join((os.path.dirname(os.path.dirname(__file__)))))
 from portfolio.backtesting import FHSignalBasedWeights
 import pandas as pd
 import numpy as np
 
 # Define start and end dates
-start_date = '2000-03-30'
+start_date = '2015-03-30'
 end_date = pd.Timestamp.today()
 
 # Fetch data using yfinance

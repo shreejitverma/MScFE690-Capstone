@@ -1,4 +1,7 @@
-from dataapi import FredAPI
+import sys
+import os
+sys.path.insert(0, os.path.join((os.path.dirname(os.path.dirname(__file__))))) 
+from getfreddata import FredAPI
 import matplotlib.pyplot as plt
 
 # Initialize the FRED API
