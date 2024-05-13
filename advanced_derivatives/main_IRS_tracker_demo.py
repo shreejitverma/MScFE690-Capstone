@@ -1,4 +1,7 @@
-from trackers import FwdIRSTrackers
+import sys
+import os
+sys.path.insert(0, os.path.join((os.path.dirname(os.path.dirname(__file__))))) 
+from fwd_swap_tracker import FwdIRSTrackers
 import pandas as pd
 import matplotlib.pyplot as plt
 

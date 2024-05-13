@@ -54,7 +54,7 @@ class FredAPI:
         """
 
         url = f'https://fred.stlouisfed.org/data/{series_id}.txt'
-        dtf = pd.read_csv(url, sep='\n')
+        dtf = pd.read_csv(url, sep="/n")
         series_start = dtf[dtf[dtf.columns[0]].str.contains('DATE\s+VALUE')].index[0] + 1
         dtf = dtf.loc[series_start:]
         dtf = dtf[dtf.columns[0]].str.split('\s+', expand=True)
