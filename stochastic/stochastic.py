@@ -99,18 +99,18 @@ plt.legend()
 plt.grid(True)
 plt.show()
 
-# ARIMA forecasting as previously implemented
+# ARIMA forecasting 
 forecast_results = {}
 for ticker in tickers:
     forecast_results[ticker] = forecast_arima(historical_returns[ticker], steps=20)
 
-# Correct subplot setup based on the number of tickers
+# Subplot setup based on the number of tickers
 rows = len(tickers) // 2 if len(tickers) % 2 == 0 else len(tickers) // 2 + 1
 fig, axes = plt.subplots(nrows=rows, ncols=2, figsize=(15, 5 * rows))
 axes = axes.flatten()
 for i, ticker in enumerate(tickers):
     axes[i].plot(historical_returns.index, historical_returns[ticker], label='Historical')
-    forecast_index = pd.date_range(start=historical_returns.index[-1], periods=21, freq='B')[1:]  # excluding the first point which is the last historical point
+    forecast_index = pd.date_range(start=historical_returns.index[-1], periods=21, freq='B')[1:] 
     axes[i].plot(forecast_index, forecast_results[ticker], label='Forecast', linestyle='--')
     axes[i].set_title(f'ARIMA Forecast for {ticker}')
     axes[i].set_ylabel('Returns')
